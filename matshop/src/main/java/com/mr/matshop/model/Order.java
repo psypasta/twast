@@ -1,7 +1,6 @@
 package com.mr.matshop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +8,11 @@ import java.util.List;
 @Table(name = "orders")
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @ElementCollection
     private List<Item> itemList;
 
     public Order() {
